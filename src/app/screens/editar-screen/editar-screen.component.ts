@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditService } from 'src/app/edit.service';
 
 @Component({
@@ -8,24 +9,37 @@ import { EditService } from 'src/app/edit.service';
 })
 export class EditarScreenComponent implements OnInit {
 
-  private edit:any = {
-    titulo: "", estado: ""
-  };
+  formulario:FormGroup;
+  opciones = ["Iniciado", "En proceso", "Terminado"]
+  estado:boolean = false;
 
-  constructor( private _servicio:EditService) {}
+  constructor(private _servicio:EditService, public FormB:FormBuilder) {
+    this.formulario = this.FormB.group({
+    titulo: ["", [Validators.required]],
+    estado: ["", [Validators.required, Validators.pattern("[^0]+")]]
+    })
+  }
 
   ngOnInit(): void {
   }
 
   mandarDatos(){
     let titulo = (<HTMLInputElement>document.getElementById("titulo")).value;
-  
-    this._servicio.setEdit(titulo, this.edit.estado);
-    console.log("Datos recibidos: ",titulo,", ",this.edit.estado);
+    let estado = (<HTMLInputElement>document.getElementById("estados")).value;
+
+    this._servicio.setEdit(titulo, estado);
+    console.log("Datos editados: ",titulo,", ",estado);
   }
-  
-  setEstado(valor:any){
-    this.edit.estado = valor;
-    console.log(valor);
+
+  validacion(){
+    this.estado=true;
+    let datos:any=[{
+      "titulo": this.formulario.get("nombre")?.value,
+      "estado": this.formulario.get("correo")?.value
+    }]
+  }
+
+  limpiar(){
+    this.formulario.reset();
   }
 }
