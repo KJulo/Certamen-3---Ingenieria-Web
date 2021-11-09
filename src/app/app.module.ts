@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeScreenComponent } from './screens/home-screen/home-screen.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditarScreenComponent } from './screens/editar-screen/editar-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeScreenComponent,
-    NavBarComponent
+    NavBarComponent,
+    EditarScreenComponent
   ],
   imports: [
     BrowserModule,
