@@ -8,6 +8,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EditarScreenComponent } from './screens/editar-screen/editar-screen.component';
 
+//servicios
+import { EditService } from './edit.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,9 @@ import { EditarScreenComponent } from './screens/editar-screen/editar-screen.com
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    EditService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

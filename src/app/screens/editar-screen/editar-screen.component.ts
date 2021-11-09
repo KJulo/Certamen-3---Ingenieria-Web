@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EditService } from 'src/app/edit.service';
 
 @Component({
   selector: 'app-editar-screen',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor( private _servicio:EditService) {
+    
+  }
 
   ngOnInit(): void {
   }
