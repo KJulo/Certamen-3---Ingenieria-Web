@@ -1,0 +1,19 @@
+<div class="container mt-5 col-4">
+    <label for="titulo" class="mt-5">Título</label>
+    <input type="text" class="form-control" id="titulo">
+    <label for="estado" class="mt-4">Estado</label>
+    <div class="row">
+        <div class="col-4">
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-dark" id="estado" ngbDropdownToggle>Estados</button>
+            <div ngbDropdownMenu aria-labelledby="estado">
+              <button (click)="setEstado('Iniciada')" id="iniciada" ngbDropdownItem>Iniciada</button>
+              <button (click)="setEstado('En Proceso')" id="en_proceso" ngbDropdownItem>En Proceso</button>
+              <button (click)="setEstado('Terminado')" id="terminado" ngbDropdownItem>Terminado</button>
+            </div>
+        </div>
+    </div>
+    <div class="col" style="margin-top: 100px;">
+        <button (click)="mandarDatos()" type="button" class="btn btn-outline-dark col-md-8 offset-md-4">Actualizar</button>
+    </div>
+</div>
