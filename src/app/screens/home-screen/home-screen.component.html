@@ -17,7 +17,8 @@
 
     <li class="d-flex flex-wrap justify-content-end mt-5">
       <button type="submit" class="btn btn-danger" (click)="limpiar()">Cancelar</button>
-      <button type="submit" class="btn btn-success ml-5" [disabled]="!formulario.valid">Enviar</button>
+      <button type="submit" class="btn btn-success ml-5" [disabled]="!formulario.valid" routerLink="/tasks" routerLinkActive="router-link-active">Enviar</button>
+
     </li>
   </ul>
 </form>

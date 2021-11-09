@@ -7,12 +7,14 @@ import { HomeScreenComponent } from './screens/home-screen/home-screen.component
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TasksScreenComponent } from './screens/tasks-screen/tasks-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeScreenComponent,
-    NavBarComponent
+    NavBarComponent,
+    TasksScreenComponent
   ],
   imports: [
     BrowserModule,
