@@ -1,1 +1,11 @@
-<p>nav-bar works!</p>
+<nav class="navbar navbar-light bg-light justify-content-start">
+  <a class="navbar-brand" routerLink='home'>Semáforo de Tareas</a>
+  <div class="navbar-nav d-flex flex-column mx-3" *ngFor="let item of estados">
+    <span class="punto align-self-center" [ngClass]="{
+      red: item.color == 'red',
+      yellow: item.color == 'yellow',
+      green: item.color == 'green'
+    }"></span>
+    <li class="nav-item" style="list-style-type: none;">{{item.title}}</li>
+  </div>
+</nav>
