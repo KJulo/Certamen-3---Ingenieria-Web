@@ -17,6 +17,11 @@ export class EditService {
     
   }
 
+  setEdit(titulo:any, estado:any){
+    this.edit.titulo = titulo;
+    this.edit.estado = estado;
+  }
+
   getEdit(){
     return this.edit;
   }

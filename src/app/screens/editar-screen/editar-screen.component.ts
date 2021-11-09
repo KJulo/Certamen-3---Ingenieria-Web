@@ -8,8 +8,11 @@ import { EditService } from 'src/app/edit.service';
 })
 export class EditarScreenComponent implements OnInit {
 
-  constructor( private _servicio:EditService) {
-    
+  constructor( private _servicio:EditService) {}
+
+  mandarDatos(titulo:any, estado:any){
+    this._servicio.setEdit(titulo, estado);
+    console.log("Datos recividos: ",titulo,", ",estado);
   }
 
   ngOnInit(): void {
