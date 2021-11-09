@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EditService } from 'src/app/edit.service';
+import { listaTareas } from 'src/app/models/tarea.model';
 
 @Component({
   selector: 'app-tasks-screen',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasksScreenComponent implements OnInit {
 
-  constructor() { }
+
+  public products:any
+  tareas = listaTareas;
+  constructor(private editService: EditService) {
+    this.products = this.editService.getTasks();
+
+  }
+
 
   ngOnInit(): void {
   }

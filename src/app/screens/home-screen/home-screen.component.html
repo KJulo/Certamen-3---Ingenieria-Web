@@ -1,24 +1,27 @@
-<form [formGroup]="formulario" class="d-flex flex-flow justify-content-center " (ngSubmit)="validacion()" novalidate>
-  <ul>
-    <li class="my-5">
-      <label class="form-label">Titulo*</label>
-      <input type="text" class="form-control" formControlName="titulo">
-    </li>
+<div >
+  <form [formGroup]="formulario" class="d-flex flex-flow justify-content-center " (ngSubmit)="validacion()" validate>
+    <ul>
 
-    <li>
-      <label class="form-label">Estado*</label>
-      <select class="custom-select" formControlName="estado">
-        <option selected value="0" class="text-muted">Estados...</option>
-        <option class="text-dark" *ngFor="let estado of opciones">
-          {{estado}}
-        </option>
-      </select>
-    </li>
+      <li class="my-5">
+        <label class="form-label">Titulo*</label>
+        <input type="text" class="form-control" formControlName="titulo">
+      </li>
 
-    <li class="d-flex flex-wrap justify-content-end mt-5">
-      <button type="submit" class="btn btn-danger" (click)="limpiar()">Cancelar</button>
-      <button type="submit" class="btn btn-success ml-5" [disabled]="!formulario.valid" routerLink="/tasks" routerLinkActive="router-link-active">Enviar</button>
+      <li>
+        <label class="form-label">Estado*</label>
+        <select class="custom-select" formControlName="estado">
+          <option selected value="0" class="text-muted">Estados...</option>
+          <option class="text-dark" *ngFor="let opcion of opciones">
+            {{opcion}}
+          </option>
+        </select>
+      </li>
 
-    </li>
-  </ul>
-</form>
+      <li class="d-flex flex-wrap justify-content-end mt-5">
+        <button type="submit" class="btn btn-danger" (click)="limpiar()">Cancelar</button>
+        <button type="submit" class="btn btn-success ml-5" [disabled]="!formulario.valid">Enviar</button>
+      </li>
+
+    </ul>
+  </form>
+</div>
