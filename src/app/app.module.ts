@@ -8,13 +8,18 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TasksScreenComponent } from './screens/tasks-screen/tasks-screen.component';
+import { EditarScreenComponent } from './screens/editar-screen/editar-screen.component';
+
+//servicios
+import { EditService } from './edit.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeScreenComponent,
     NavBarComponent,
-    TasksScreenComponent
+    TasksScreenComponent,
+    EditarScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,9 @@ import { TasksScreenComponent } from './screens/tasks-screen/tasks-screen.compon
     NgbModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    EditService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
