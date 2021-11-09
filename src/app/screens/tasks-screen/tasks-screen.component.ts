@@ -9,12 +9,12 @@ import { listaTareas } from 'src/app/models/tarea.model';
 })
 export class TasksScreenComponent implements OnInit {
 
+  //tareas de ejemplo
 
   public products:any
   tareas = listaTareas;
   constructor(private editService: EditService) {
     this.products = this.editService.getTasks();
-
   }
 
 

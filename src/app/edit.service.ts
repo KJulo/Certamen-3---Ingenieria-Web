@@ -10,11 +10,12 @@ export class EditService {
   };
 
 
-
-
   private tasks:any = [
-    {titulo: "", estado: ""},
-    {titulo: "asdad", estado: "asdads"}
+    {titulo: "asdad", estado: "Iniciado"},
+    {titulo: "asdad", estado: "Iniciado"},
+    {titulo: "asdad", estado: "En proceso"},
+    {titulo: "asdad", estado: "En proceso"},
+    {titulo: "asdad", estado: "Terminado"}
   ]
 
   constructor() {
