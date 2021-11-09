@@ -5,15 +5,15 @@
     <div class="row">
         <div class="col-4">
           <div ngbDropdown class="d-inline-block">
-            <button class="btn btn-outline-dark" id="estados" ngbDropdownToggle>Estados</button>
-            <div ngbDropdownMenu aria-labelledby="estados">
-              <button ngbDropdownItem>Iniciada</button>
-              <button ngbDropdownItem>En proceso</button>
-              <button ngbDropdownItem>Termiado</button>
+            <button class="btn btn-outline-dark" id="estado" ngbDropdownToggle>Estados</button>
+            <div ngbDropdownMenu aria-labelledby="estado">
+              <button (click)="setEstado('Iniciada')" id="iniciada" ngbDropdownItem>Iniciada</button>
+              <button (click)="setEstado('En Proceso')" id="en_proceso" ngbDropdownItem>En Proceso</button>
+              <button (click)="setEstado('Terminado')" id="terminado" ngbDropdownItem>Terminado</button>
             </div>
         </div>
     </div>
     <div class="col" style="margin-top: 100px;">
-        <button type="button" class="btn btn-outline-dark col-md-8 offset-md-4">Actualizar</button>
+        <button (click)="mandarDatos()" type="button" class="btn btn-outline-dark col-md-8 offset-md-4">Actualizar</button>
     </div>
 </div>
