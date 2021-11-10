@@ -3,19 +3,19 @@
 
     <div class="col">
       <div class="mt-5 green" *ngFor="let tarea of tareas">
-        <li class="p-3" *ngIf="tarea.estado ==='Terminado'">{{tarea.titulo}}</li>
+        <li class="p-3" id="{{tarea._id}}" *ngIf="tarea.estado ==='Terminado'">{{tarea.titulo}}</li>
       </div>
     </div>
 
     <div class="col">
       <div class="mt-5 yellow" *ngFor="let tarea of tareas">
-        <li class="p-3" *ngIf="tarea.estado ==='En proceso'" >{{tarea.titulo}}</li>
+        <li class="p-3" id="{{tarea._id}}" *ngIf="tarea.estado ==='En proceso'" >{{tarea.titulo}}</li>
       </div>
     </div>
 
     <div class="col">
       <div class="mt-5 red" *ngFor="let tarea of tareas">
-        <li class="p-2" *ngIf="tarea.estado ==='Iniciado'"  [routerLink]="['/detalleTarea',tarea._id]" >{{tarea.titulo}}<button (click)="eliminar(tarea._id);$event.stopPropagation()" class="btn ml-5" ><i class="bi bi-x-circle"></i></button></li>
+        <li class="p-2" id="{{tarea._id}}" *ngIf="tarea.estado ==='Iniciado'"  [routerLink]="['/detalleTarea',tarea._id]" >{{tarea.titulo}}<button (click)="eliminar(tarea._id);$event.stopPropagation()" class="btn ml-5" ><i class="bi bi-x-circle"></i></button></li>
       </div>
     </div>
 
