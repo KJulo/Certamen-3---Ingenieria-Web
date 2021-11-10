@@ -8,7 +8,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeScreenComponent},
   { path: 'tasks', component: TasksScreenComponent},
-  { path: 'edit', component: EditarScreenComponent}
+  //{ path: 'edit', component: EditarScreenComponent}
+  { path: 'detalleTarea/:id', component:EditarScreenComponent},
+  { path: 'detalleTarea', component:EditarScreenComponent}
 ];
 
 

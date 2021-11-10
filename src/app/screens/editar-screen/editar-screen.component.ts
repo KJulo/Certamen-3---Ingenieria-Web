@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditService } from 'src/app/edit.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-screen',
@@ -8,24 +10,44 @@ import { EditService } from 'src/app/edit.service';
 })
 export class EditarScreenComponent implements OnInit {
 
-  private edit:any = {
-    titulo: "", estado: ""
-  };
+  id:any;
 
-  constructor( private _servicio:EditService) {}
+  formulario:FormGroup;
+  opciones = ["Iniciado", "En proceso", "Terminado"]
+  estado:boolean = false;
+
+  constructor(private _servicio:EditService, public FormB:FormBuilder, private ruta:ActivatedRoute, private router: Router) {
+    this.ruta.params.subscribe(datos=>{
+      this.id=datos["id"];
+      console.log(this.id);
+    })
+    this.formulario = this.FormB.group({
+    titulo: ["", [Validators.required]],
+    estado: ["", [Validators.required, Validators.pattern("[^0]+")]]
+    })
+    console.log(this.id);
+  }
 
   ngOnInit(): void {
   }
 
   mandarDatos(){
+    let id = this.id;
     let titulo = (<HTMLInputElement>document.getElementById("titulo")).value;
-  
-    this._servicio.setEdit(titulo, this.edit.estado);
-    console.log("Datos recibidos: ",titulo,", ",this.edit.estado);
+    let estado = (<HTMLInputElement>document.getElementById("estados")).value;
+    this._servicio.setEdit(id, titulo, estado);
+    this.router.navigate(['tasks'])
   }
-  
-  setEstado(valor:any){
-    this.edit.estado = valor;
-    console.log(valor);
+
+  validacion(){
+    this.estado=true;
+    let datos:any=[{
+      "titulo": this.formulario.get("nombre")?.value,
+      "estado": this.formulario.get("correo")?.value
+    }]
+  }
+
+  limpiar(){
+    this.formulario.reset();
   }
 }
