@@ -40,7 +40,10 @@ export class HomeScreenComponent implements OnInit {
   }
 
   limpiar(){
-    this.formulario.reset();
+    this.formulario.setValue({
+      "titulo": "",
+      "estado": 0
+    });
   }
 
 }
