@@ -9,12 +9,20 @@ export class EditService {
     titulo: "", estado: ""
   };
 
+
+
+
+  private tasks:any = [
+    {titulo: "", estado: ""},
+    {titulo: "asdad", estado: "asdads"}
+  ]
+
   constructor() {
     console.log("servicio funcionando");
   }
 
   obtenerDatos(){
-    
+
   }
 
   setEdit(titulo:any, estado:any){
@@ -24,5 +32,13 @@ export class EditService {
 
   getEdit(){
     return this.edit;
+  }
+
+  getTasks(){
+    return this.tasks;
+  }
+
+  setTasks(task:any){
+    this.tasks.append(task);
   }
 }
