@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditService } from 'src/app/edit.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-screen',
@@ -9,14 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./editar-screen.component.scss']
 })
 export class EditarScreenComponent implements OnInit {
-  
+
   id:any;
 
   formulario:FormGroup;
   opciones = ["Iniciado", "En proceso", "Terminado"]
   estado:boolean = false;
 
-  constructor(private _servicio:EditService, public FormB:FormBuilder, private params: Router) {
+
+
+
+  constructor(private _servicio:EditService, public FormB:FormBuilder, private ruta:ActivatedRoute) {
+    this.ruta.params.subscribe(datos=>{
+      this.id=datos["id"];
+      console.log(this.id);
+    })
     this.formulario = this.FormB.group({
     titulo: ["", [Validators.required]],
     estado: ["", [Validators.required, Validators.pattern("[^0]+")]]
@@ -27,9 +34,7 @@ export class EditarScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  obtenerId(input:any){
-    this.params.navigate(["detalleTarea/", input.id]);
-  }
+
 
   mandarDatos(){
     let id = this.id;
