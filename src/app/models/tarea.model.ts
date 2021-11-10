@@ -1,3 +1,5 @@
+import { EditService } from "../edit.service";
+
 export interface tarea{
   _id:number;
   titulo:string,
@@ -46,3 +48,9 @@ export let listaTareas:Array<tarea> = [{
         titulo: "certamen",
         estado: "Terminado"}
 ];
+
+//Al cargar la pagina se actualizará el dato almacenado en edit
+window.onload = function actualizar () {
+  let edit = new EditService;
+  let nuevoDato = edit.getEdit();
+}

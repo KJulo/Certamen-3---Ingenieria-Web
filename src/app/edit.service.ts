@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class EditService {
 
   private edit:any = {
-    titulo: "", estado: ""
+    id: "",titulo: "", estado: ""
   };
 
 
@@ -18,15 +18,10 @@ export class EditService {
     {titulo: "asdad", estado: "Terminado"}
   ]
 
-  constructor() {
-    console.log("servicio funcionando");
-  }
+  constructor() {}
 
-  obtenerDatos(){
-
-  }
-
-  setEdit(titulo:any, estado:any){
+  setEdit(id:any, titulo:any, estado:any){
+    this.edit.id = id;
     this.edit.titulo = titulo;
     this.edit.estado = estado;
   }
