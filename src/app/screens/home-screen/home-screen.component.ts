@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EditService } from 'src/app/edit.service';
 import { listaTareas, tarea } from 'src/app/models/tarea.model';
 
 

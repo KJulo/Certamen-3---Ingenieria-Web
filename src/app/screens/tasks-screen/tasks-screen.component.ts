@@ -1,7 +1,5 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
-import { EditService } from 'src/app/edit.service';
 import { listaTareas, tarea } from 'src/app/models/tarea.model';
 
 @Component({

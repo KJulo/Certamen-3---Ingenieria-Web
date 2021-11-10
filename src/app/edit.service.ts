@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { tarea, actualizarDatos } from 'src/app/models/tarea.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +26,7 @@ export class EditService {
     this.edit.id = id;
     this.edit.titulo = titulo;
     this.edit.estado = estado;
+    actualizarDatos(id, titulo, estado);
   }
 
   getEdit(){

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EditService } from 'src/app/edit.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,10 +16,7 @@ export class EditarScreenComponent implements OnInit {
   opciones = ["Iniciado", "En proceso", "Terminado"]
   estado:boolean = false;
 
-
-
-
-  constructor(private _servicio:EditService, public FormB:FormBuilder, private ruta:ActivatedRoute) {
+  constructor(private _servicio:EditService, public FormB:FormBuilder, private ruta:ActivatedRoute, private router: Router) {
     this.ruta.params.subscribe(datos=>{
       this.id=datos["id"];
       console.log(this.id);
@@ -34,15 +31,12 @@ export class EditarScreenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
   mandarDatos(){
     let id = this.id;
     let titulo = (<HTMLInputElement>document.getElementById("titulo")).value;
     let estado = (<HTMLInputElement>document.getElementById("estados")).value;
-
     this._servicio.setEdit(id, titulo, estado);
-    console.log("Datos editados: ",titulo,", ",estado);
+    this.router.navigate(['tasks'])
   }
 
   validacion(){
