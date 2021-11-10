@@ -19,13 +19,13 @@ export class EditarScreenComponent implements OnInit {
   constructor(private _servicio:EditService, public FormB:FormBuilder, private ruta:ActivatedRoute, private router: Router) {
     this.ruta.params.subscribe(datos=>{
       this.id=datos["id"];
-      console.log(this.id);
+
     })
     this.formulario = this.FormB.group({
     titulo: ["", [Validators.required]],
     estado: ["", [Validators.required, Validators.pattern("[^0]+")]]
     })
-    console.log(this.id);
+
   }
 
   ngOnInit(): void {

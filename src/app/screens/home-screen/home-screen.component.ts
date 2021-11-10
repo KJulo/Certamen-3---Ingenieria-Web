@@ -35,7 +35,6 @@ export class HomeScreenComponent implements OnInit {
       "estado": this.formulario.get("estado")?.value
     }
       this.tareas.push(datos);
-      console.log(this.tareas);
       this.router.navigate(['tasks'])
   }
 
